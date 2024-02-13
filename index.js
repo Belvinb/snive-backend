@@ -15,7 +15,7 @@ const options = [
     })
   ];
   
-  app.use(options)
+  // app.use(cors())
 
 
 app.use(express.json())

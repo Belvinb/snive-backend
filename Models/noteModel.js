@@ -13,6 +13,9 @@ const noteSchema = new Schema({
     content:{
         type:String,
         required:true
+    },
+    user_id:{
+        type:String,
     }
 },{timestamps:true})
 

@@ -5,10 +5,13 @@ module.exports = {
   addNote: async (req, res) => {
     try {
       const { title, description, content } = req.body;
+      const id = req.user_id
+      console.log(id)
       const newNote = await Note.create({
         title,
         description,
         content,
+        user_id: id
       });
       res.status(201).json({ message: "New note added" });
     } catch (error) {
@@ -22,8 +25,11 @@ module.exports = {
       const pageSize = 5;
 
       const { pageNumber = 1, title } = req.query;
+      const id = req.user_id
 
-      const searchQuery = {};
+      const searchQuery = {
+          user_id:  id
+      };
 
       if (title) {
         searchQuery.title = title;
